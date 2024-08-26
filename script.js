@@ -5,7 +5,15 @@ function rendertodoHtml() {
 
   for (let i = 0; i < todoList.length; i++) {
     const todo = todoList[i];
-    const html = `<li>${todo}</li>`;
+    const html = `
+    <li>
+    ${todo}
+    <button class='delete-btn' onclick="
+    todoList.splice(${i}, 1);
+    rendertodoHtml();
+    ">Delete</button>
+    </li>
+    `;
     todolistHtml += html;
   }
   //   console.log(todolistHtml);
